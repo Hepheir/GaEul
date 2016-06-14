@@ -14,6 +14,10 @@ function user_input(i){
     str[b] = str[b].replace(/해;/g,";");
     str[b] = str[b].replace(/나요;/g,";");
     str[b] = str[b].replace(/요;/g,";");
+    
+    str[b] = str[b].replace(/하시죠;/g,";");
+    str[b] = str[b].replace(/하죠;/g,";");
+    str[b] = str[b].replace(/죠;/g,";");
 
     str[b] = str[b].replace(/입니다;/g,";");
     str[b] = str[b].replace(/니다;/g,";");
