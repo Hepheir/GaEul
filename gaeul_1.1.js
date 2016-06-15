@@ -44,6 +44,8 @@ function user_input(i){
 
     str[b] = str[b].replace(/을\+/g,"+");
     str[b] = str[b].replace(/를\+/g,"+");
+    str[b] = str[b].replace(/의\+/g,"+");
+    str[b] = str[b].replace(/도\+/g,"+");
     str[b] = str[b].replace(/에게\+/g,"+");
     str[b] = str[b].replace(/께\+/g,"+");
     str[b] = str[b].replace(/으로\+/g,"+");
