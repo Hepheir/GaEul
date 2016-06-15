@@ -24,6 +24,11 @@ function user_input(i){
     str[b] = str[b].replace(/시죠;/g,";");
     str[b] = str[b].replace(/죠;/g,";");
 
+    str[b] = str[b].replace(/하셨노라;/g,";");
+    str[b] = str[b].replace(/하노라;/g,";");
+    str[b] = str[b].replace(/하거라;/g,";");
+    str[b] = str[b].replace(/보거라;/g,";");
+    
     str[b] = str[b].replace(/입니다;/g,";");
     str[b] = str[b].replace(/니다;/g,";");
     str[b] = str[b].replace(/이다;/g,";");
@@ -36,11 +41,6 @@ function user_input(i){
     str[b] = str[b].replace(/좀\+/g,"+");
     
     str[b] = str[b].replace(/야;/g,";");
-    //조사
-    str[b] = str[b].replace(/은\+/g,"+");
-    str[b] = str[b].replace(/는\+/g,"+");
-    str[b] = str[b].replace(/이\+/g,"+");
-    str[b] = str[b].replace(/가\+/g,"+");
 
     str[b] = str[b].replace(/을\+/g,"+");
     str[b] = str[b].replace(/를\+/g,"+");
@@ -51,10 +51,11 @@ function user_input(i){
     str[b] = str[b].replace(/으로\+/g,"+");
     str[b] = str[b].replace(/로\+/g,"+");
 
-    str[b] = str[b].replace(/하셨노라;/g,";");
-    str[b] = str[b].replace(/하노라;/g,";");
-    str[b] = str[b].replace(/하거라;/g,";");
-    str[b] = str[b].replace(/보거라;/g,";");
+    //조사
+    str[b] = str[b].replace(/은\+/g,"+");
+    str[b] = str[b].replace(/는\+/g,"+");
+    str[b] = str[b].replace(/이\+/g,"+");
+    str[b] = str[b].replace(/가\+/g,"+");
     //기호
     str[b] = str[b].replace(/\./g,"");
     str[b] = str[b].replace(/,/g,"");
