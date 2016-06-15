@@ -7,7 +7,11 @@ function user_input(i){
   for (var b = 0; b < a; b++) {
     str[b] = str[b].replace(/하세요;/g,";");
     str[b] = str[b].replace(/세요;/g,";");
+    str[b] = str[b].replace(/하시게;/g,";");
+    str[b] = str[b].replace(/하게;/g,";");
+    str[b] = str[b].replace(/시게;/g,";");
     str[b] = str[b].replace(/하다;/g,";");
+    str[b] = str[b].replace(/하네;/g,";");
     str[b] = str[b].replace(/이다;/g,";");
 
     str[b] = str[b].replace(/해요;/g,";");
@@ -22,7 +26,15 @@ function user_input(i){
 
     str[b] = str[b].replace(/입니다;/g,";");
     str[b] = str[b].replace(/니다;/g,";");
+    str[b] = str[b].replace(/이다;/g,";");
+    str[b] = str[b].replace(/다;/g,";");
 
+    str[b] = str[b].replace(/같다;/g,";");
+    str[b] = str[b].replace(/같네;/g,";");
+    str[b] = str[b].replace(/처럼;/g,"");
+    str[b] = str[b].replace(/마치/g,"");
+    str[b] = str[b].replace(/좀\+/g,"+");
+    
     str[b] = str[b].replace(/야;/g,";");
     //조사
     str[b] = str[b].replace(/은\+/g,"+");
