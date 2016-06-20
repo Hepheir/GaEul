@@ -1,3 +1,105 @@
+function h_grammar(word){
+  var n = word.length;
+  if (n == 1){ //임시 예외처리
+    return word;
+  }
+  word += ';'; //단어가 끝나는 부분을 확실히 구분
+  /*
+  * 격조사
+  */
+  while(1){
+    if (word.endsWith('이;') || word.endsWith('가;')){ //주격, 보격조사
+      word.endsWith('이;') ? n = word.lastIndexOf("이;") : n = word.lastIndexOf("가;");
+    }
+    else if (word.endsWith('께서;')){ //주격조사
+      n = word.lastIndexOf("께서;");
+    }
+    else if (word.endsWith('에서;')){ //주격, 부사격조사
+      n = word.lastIndexOf("에서;");
+    }
+    else if (word.endsWith('다;')){ //서술격조사
+      word.endsWith('이다;') ? n = word.lastIndexOf("이다;") : n = word.lastIndexOf("다;");
+    }
+    else if (word.endsWith('의;')){ //관형격조사
+      n = word.lastIndexOf("의;");
+    }
+    else if (word.endsWith('을;') || word.endsWith('를;')){ //목적격조사
+      word.endsWith('을;') ? n = word.lastIndexOf("을;") : n = word.lastIndexOf("를;");
+      var hmm = letter(word)[n-1]; //'을' 또는 '를'의 앞글자의 받침이 'ㅆ'이면 조사로 쓰이지 않았다고 추정할 수 있으므로 예외처리.
+      if (hmm[3] == 'ㅅ' && hmm[4] == 'ㅅ'){
+        n++;
+        break;
+      }
+    }
+    else if (word.endsWith('에;')){ //부사격조사
+      n = word.lastIndexOf("에;");
+    }
+    else if (word.endsWith('에게;') || word.endsWith('으로;')){ //부사격조사
+      word.endsWith('에게;') ? n = word.lastIndexOf("에게;") : n = word.lastIndexOf("으로;");
+    }
+    else if (word.endsWith('야;') || word.endsWith('아;')){ //호격조사
+      word.endsWith('야;') ? n = word.lastIndexOf("야;") : n = word.lastIndexOf("아;")
+    }
+    else if (word.endsWith('여;')){ //호격조사
+      if (word.endsWith('하여;')){
+        break;
+      }
+      n = word.lastIndexOf("여;");
+    }
+    /*
+    * 접속조사
+    */
+    else if (word.endsWith('와;')){
+      n = word.lastIndexOf("와;");
+    }
+    else if (word.endsWith('과;')){
+      n = word.lastIndexOf("과;");
+    }
+    else if (word.endsWith('랑;')){
+      word.endsWith('이랑;') ? n = word.lastIndexOf("이랑;") : n = word.lastIndexOf("랑;");
+    }
+    else if (word.endsWith('며;')){
+      word.endsWith('이며;') ? n = word.lastIndexOf("이며;") : n = word.lastIndexOf("며;");
+    }
+    /*
+    * 보조사
+    */
+    else if (word.endsWith('은;')){
+      n = word.lastIndexOf("은;");
+    }
+    else if (word.endsWith('는;')){
+      if (word.endsWith('하는;')){
+        break;
+      }
+      n = word.lastIndexOf("는;");
+    }
+    else if (word.endsWith('도;')){
+      n = word.lastIndexOf("도;");
+    }
+    else if (word.endsWith('만;')){
+      n = word.lastIndexOf("만;");
+    }
+    else if (word.endsWith('까지;')){
+      n = word.lastIndexOf("까지;");
+    }
+    else if (word.endsWith('조차;')){
+      n = word.lastIndexOf("조차;");
+    }
+    else if (word.endsWith('부터;')){
+      n = word.lastIndexOf("부터;");
+    }
+    else if (word.endsWith('마저;')){
+      n = word.lastIndexOf("마저;");
+    }
+    else {
+      break;
+    }
+    word = word.substr(0, n+1);
+  }
+  word = word.substr(0, n);
+  return word;
+}
+
 function letter(str){ //초성 중성 종성을 모두 자음/모음만으로 분리 해주는 함수
   var uni = new Array();
   var han = new Array();
