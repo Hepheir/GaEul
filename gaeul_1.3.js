@@ -12,5 +12,6 @@ function first(str){ //전처리 과정
   }
   var han = letter(str);
   han = han.join(",").replace(/,/g,"");
+  r = r.join(",").replace(/,/g," ");
   document.getElementById("bodyWrap").innerHTML += r;
 }
