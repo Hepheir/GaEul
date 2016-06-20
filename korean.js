@@ -18,6 +18,11 @@ function h_grammar(word){
       n = word.lastIndexOf("에서;");
     }
     else if (word.endsWith('다;')){ //서술격조사
+      var hmm = letter(word)[n-2]; //-하-다 형태의 처리
+      if (hmm[0] == 'ㅎ' && hmm[1] == 'ㅏ'){
+        n-=2;
+        break;
+      }
       word.endsWith('이다;') ? n = word.lastIndexOf("이다;") : n = word.lastIndexOf("다;");
     }
     else if (word.endsWith('의;')){ //관형격조사
@@ -38,10 +43,15 @@ function h_grammar(word){
       word.endsWith('에게;') ? n = word.lastIndexOf("에게;") : n = word.lastIndexOf("으로;");
     }
     else if (word.endsWith('야;') || word.endsWith('아;')){ //호격조사
-      word.endsWith('야;') ? n = word.lastIndexOf("야;") : n = word.lastIndexOf("아;")
+      word.endsWith('야;') ? n = word.lastIndexOf("야;") : n = word.lastIndexOf("아;");
     }
     else if (word.endsWith('여;')){ //호격조사
-      if (word.endsWith('하여;')){
+      if (word == '대하여;'){
+        break;
+      }
+      var hmm = letter(word)[n-2]; //-하-?-여 형태의 처리.
+      if (hmm[0] == 'ㅎ' && hmm[1] == 'ㅏ'){
+        n-=2;
         break;
       }
       n = word.lastIndexOf("여;");
@@ -53,13 +63,21 @@ function h_grammar(word){
       n = word.lastIndexOf("와;");
     }
     else if (word.endsWith('과;')){
+      if (word.endsWith('결과;')){
+        break;
+      }
       n = word.lastIndexOf("과;");
     }
     else if (word.endsWith('랑;')){
       word.endsWith('이랑;') ? n = word.lastIndexOf("이랑;") : n = word.lastIndexOf("랑;");
     }
     else if (word.endsWith('며;')){
-      word.endsWith('이며;') ? n = word.lastIndexOf("이며;") : n = word.lastIndexOf("며;");
+      if (word.endsWith('하며;')){
+        n = word.lastIndexOf("하며;");
+      }
+      else {
+        word.endsWith('이며;') ? n = word.lastIndexOf("이며;") : n = word.lastIndexOf("며;");
+      }
     }
     /*
     * 보조사
