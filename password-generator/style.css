@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html { width: 100%; height: 100%; }
+
+p {
+	font-size: 18px;
+	color: #616161;
+	word-break: keep-all;
+	text-align: justify;
+	line-height: 1.5;
+	
+	overflow: hidden;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+textarea { max-width: 100%; }
+
+input.hidden {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	opacity: 0;
+	pointer-events: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	
+	font-size: 18px;
+	font-family: 'Roboto', 'serif';
+	background-color: #ECEFF1;
+}
+
+.card {
+	width: 100%;
+	height: auto;
+	max-width: 560px;
+	padding: 16px;
+	margin: 32px auto;
+	
+	border-radius: 3px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+	background-color: #FFFFFF;
+	
+	overflow: hidden;
+}
+
+button {
+	width: 100%;
+	height: auto;
+	padding: 4px 12px;
+	margin: 32px auto;
+	
+	display: block;
+	
+	background-color: #42a5f5;
+	color: #FFF;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+	border-radius: 3px;
+}
+
+label {
+	margin-top: 16px;
+	font-size: 16px;
+}
+label.checkbox {
+	position: relative;
+	padding-left: 24px;
+	margin-top: 16px;
+	
+	font-size: 16px;
+	
+	display: block;
+}
+
+label.checkbox:before {
+	content: '';
+	width: 16px;
+	height: 16px;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	display: block;
+	
+	border: 2px solid #BDBDBD;
+	border-radius: 50%;
+}
+
+input[type="number"] {
+	width: 52px;
+	height: auto;
+	padding: 4px 8px;
+	
+	border-bottom: 2px solid #BDBDBD;
+}
+
+input[type="checkbox"]:checked + label.checkbox:before {
+	background-color: #a5d6a7;
+}

@@ -1,0 +1,80 @@
+<html lang="ko">
+	
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cards!!</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+	<header class="app-bar bgc500">
+		<div class="app-bar__wrap">
+			<nav>
+				<span class="nav-icon">
+					<i class="material-icons">&#xE5D2;</i>
+				</span>
+				<span class="menu-icon">
+					<i class="material-icons">&#xE5D4;</i>
+				</span>
+			</nav>
+			<h1 class="title">Cows and Bulls!</h1>
+		</div>
+		<nav class="a-tabs">
+			<input id="a-1" class="js-a-item hidden" type="radio" name="a-tabs">
+			<label for="a-1" class="item">logs</label>
+			
+			<input id="a-2" class="js-a-item hidden" type="radio" name="a-tabs" checked>
+			<label for="a-2" class="item item--selected">game</label>
+			
+			<input id="a-3" class="js-a-item hidden" type="radio" name="a-tabs">
+			<label for="a-3" class="item">new</label>
+		</nav>
+	</header>
+	<aside class="side-nav"></aside>
+	
+	<section screen="logs" class="content js-a-target content--left">
+		<table class="log-table">
+			<tbody>
+				<tr class="row last-row">
+					<td class="data data-index">#</td>
+					<td class="data">Number</td>
+					<td class="data sub-data">Strikes</td>
+					<td class="data sub-data">Balls</td>
+					<td class="data sub-data">Time</td>
+				</tr>
+
+<!--
+				<tr class="row">
+					<td class="data data-index">1</td>
+					<td class="data">123456</td>
+					<td class="data sub-data">1</td>
+					<td class="data sub-data">2</td>
+					<td class="data sub-data">22:43</td>
+				</tr>
+-->
+			</tbody>
+		</table>
+	</section>
+	
+	<section screen="game" class="content js-a-target">
+		<div class="content__wrap">
+			<input class="game-input js-g-input" type="email" placeholder="10진수 4자리" pattern="[0-9]{4}" autofocus>
+			<button class="game-submit js-g-submit">입력</button>
+			<p class="game-result js-g-result"></p>
+		</div>
+	</section>
+	
+	<section screen="analyse" class="content js-a-target content--right">
+		<div class="content__wrap">
+			<input class="game-input js-s-input1" type="number" placeholder="n진수 (최대 36개 )">
+			<input class="game-input js-s-input2" type="number" placeholder="게임에 사용 할 숫자 갯수">
+			<button class="game-submit js-s-submit">새 게임 시작</button>
+			<p class="game-result js-g-result"></p>
+		</div>
+	</section>
+	<script src="script.js"></script>
+</body>
+
+</html>

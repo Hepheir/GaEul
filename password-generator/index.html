@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- THIS PAGE IS USING HTML5 -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Password Generator</title>
+	<link rel="stylesheet" href="style.css" media="screen">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="card">
+			<input id="a-1" class="js--a-1 hidden" type="checkbox"/>
+			<label for="a-1" class="checkbox">대문자 포함</label>
+			<input id="a-2" class="js--a-2 hidden" type="checkbox"/>
+			<label for="a-2" class="checkbox">특수기호 포함</label>
+			<input id="a-3" class="js--a-3" type="number" min="1" value="10"/>
+			<label for="a-3">자리 수</label>
+			<button class="js--a-sub">생성</button>
+			<p class="js--a-res"></p>
+		</div>
+	</div>
+	<script rel="javascript" src="script.js"></script>
+</body>
+</html>

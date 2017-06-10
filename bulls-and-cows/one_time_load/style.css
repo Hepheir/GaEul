@@ -1,0 +1,298 @@
+@charset "UTF-8";
+	
+/*
+*	1. 크기관련
+*	2. 배치관련
+*	3. 배색관련
+*	4. 폰트관련
+*	5. 애니메이션관련
+*/
+
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	list-style: none;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	
+	background-color: inherit;
+	border-color: inherit;
+	color: inherit;
+}
+
+*:after,
+*:before { background-color: transparent; }
+
+/* for hidden input */
+input.hidden {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	opacity: 0;
+	pointer-events: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+/* COLOR */
+
+.bgc500 {
+	/* Primary color */
+	background-color: #3F51B5;
+	color: #FFFFFF;
+	/* Accent color */
+	border-color: #FF3F80;
+}
+
+/*
+*	primary : .87
+*	secondary : .54
+*	disabled/hint : .38
+*/
+
+
+/* LAYOUT */
+
+.app-bar {
+	width: 100%;
+	height: auto;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+}
+
+	.app-bar__wrap{
+		width: 100%;
+		height: 56px;
+		padding-left: 16px;
+		padding-right: 16px;
+		
+		position: relative;
+	}
+
+	.app-bar .nav-icon,
+	.app-bar .menu-icon {
+		width: 48px;
+		height: 48px;
+		padding: 12px;
+		
+		position: fixed;
+		top: 4px;
+		
+		display: block;
+		
+		cursor: pointer;
+	}
+
+		.app-bar .nav-icon {
+			left: 4px;
+		}
+		.app-bar .menu-icon {
+			width: 36px;
+			padding: 12px 6px;
+			right: 4px;
+		}
+
+	.app-bar .title {
+		width: auto;
+		height: 18px;
+
+		position: absolute;
+
+		bottom: 20px;
+		left: 72px;
+
+		font-size: 18px;
+	}
+
+	.a-tabs {
+		width: 100%;
+		height: 48px;
+		
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+		.a-tabs .item{
+			width: 100%;
+			height: 100%;
+			padding-top: 12px;
+			padding-bottom: 20px;
+			
+			flex-grow: 1;
+			flex-shrink: 1;
+
+			font-size: 16px;
+			line-height: 16px;
+			text-align: center;
+			text-transform: uppercase;
+			
+			color: rgb(255, 255, 255);
+			color: rgba(255, 255, 255, .7);
+			
+			cursor: pointer;
+			transition: background-color .3s ease;
+		}
+
+		.a-tabs input[name="a-tabs"]:checked+.item {
+			padding-bottom: 18px;
+			border-bottom-width: 2px;
+			border-bottom-style: solid;
+			
+			color: #FFFFFF;
+		}
+
+		.a-tabs .item:hover {
+			background-color: rgba(255,255,255, .1);
+		}
+
+.content {
+	width: 100%;
+	height: 100%;
+	/* App bar(56) + tabs(48) */
+	padding-top: 104px;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	
+	overflow: auto;
+	
+	color: #424242;
+	
+	transition: transform .35s ease;
+	transform: none;
+	will-change: transform;
+}
+
+.content--left { transform: translateX(-100%); }
+.content--right { transform: translateX(100%); }
+
+	.content__wrap {
+		width: 100%;
+		height: auto;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+/* LOGS */
+
+.log-table {
+	width: 100%;
+	height: auto;
+	
+	table-layout: auto;
+	border-collapse: collapse;
+}
+
+	.log-table .row {
+		width: 100%;
+		height: 48px;
+		
+		border-bottom: 1px solid #E0E0E0;
+		color: #424242;
+		
+		font-size: 13px;
+		
+		transition: background-color .3s ease;
+	}
+
+	.log-table .row:hover {
+		background-color: #F5F5F5;
+	}
+
+	.log-table .last-row {
+		height: 56px;
+		
+		color: #9E9E9E;
+		font-size: 12px;
+	}
+
+		.log-table .data {
+			height: 100%;
+			padding: 12px;
+			
+			vertical-align: center;
+		}
+
+		.log-table .data-index {
+			width: 48px;
+			text-align: center;
+		}
+
+		.log-table .sub-data {
+			width: 96px;
+			text-align-last: right;
+		}
+
+/* GAME */
+
+.game-input {
+	width: 100%;
+	height: auto;
+	padding: 4px;
+	padding-bottom: 2px;
+	margin-top: 48px;
+	margin-bottom: 32px;
+	
+	display: block;
+	
+	border-bottom: 2px solid #757575;
+	
+	font-size: 20px;
+}
+
+.game-submit {
+	width: 100%;
+	height: auto;
+	padding: 8px;
+	margin-bottom: 32px;
+	
+	border-radius: 3px;
+	
+	background-color: #2196F3;
+	color: #FFFFFF;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
+	
+	font-size: 16px;
+	
+	transition: background-color .3s ease,
+		box-shadow .3s ease;
+	cursor: pointer;
+}
+
+
+input::placeholder {
+	color: #9E9E9E;
+	font-size: 14px;
+}
+
+.game-submit:hover {
+	background-color: #64B5F6;
+	box-shadow: 0 4px 3px rgba(0, 0, 0, .3);
+}
+
+.game-result {
+	margin-bottom: 32px;
+	font-size: 20px;
+}
