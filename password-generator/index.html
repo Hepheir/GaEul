@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-<!-- THIS PAGE IS USING HTML5 -->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +7,109 @@
 	<link rel="stylesheet" href="style.css" media="screen">
 </head>
 <body>
-	<div class="wrapper">
-		<div class="card">
-			<input id="a-1" class="js--a-1 hidden" type="checkbox"/>
-			<label for="a-1" class="checkbox">대문자 포함</label>
-			<input id="a-2" class="js--a-2 hidden" type="checkbox"/>
-			<label for="a-2" class="checkbox">특수기호 포함</label>
-			<input id="a-3" class="js--a-3" type="number" min="1" value="10"/>
-			<label for="a-3">자리 수</label>
-			<button class="js--a-sub">생성</button>
-			<p class="js--a-res"></p>
-		</div>
+
+<div class="body-layout">
+	<input id="list__toggle-input" class="hidden" type="checkbox">
+	<ul class="list">
+		<li class="list__item">
+			<label class="item-label">
+				<input id="js--option-number" class="hidden" type="checkbox" checked>
+				<svg class="item__icon-svg" height="24" viewBox="0 0 24 24" width="24">
+					<path class="checked-false" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+					<path class="checked-true" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+				<div class="item__text">
+					<span class="item__primary-text">숫자</span>
+					<span class="item__secondary-text">1-9</span>
+				</div>
+			</label>
+		</li>
+
+		<li class="list__item">
+			<label class="item-label">
+				<input id="js--option-lowercase" class="hidden" type="checkbox" checked>
+				<svg class="item__icon-svg" height="24" viewBox="0 0 24 24" width="24">
+					<path class="checked-false" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+					<path class="checked-true" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+				<div class="item__text">
+					<span class="item__primary-text">소문자</span>
+					<span class="item__secondary-text">a-z</span>
+				</div>
+			</label>
+		</li>
+		
+		<li class="list__item">
+			<label class="item-label">
+				<input id="js--option-uppercase" class="hidden" type="checkbox">
+				<svg class="item__icon-svg" height="24" viewBox="0 0 24 24" width="24">
+					<path class="checked-false" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+					<path class="checked-true" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+				<div class="item__text">
+					<span class="item__primary-text">대문자</span>
+					<span class="item__secondary-text">A-Z</span>
+				</div>
+			</label>
+		</li>
+		
+		<li class="list__item">
+			<label class="item-label">
+				<input id="js--option-specialChar" class="hidden" type="checkbox">
+				<svg class="item__icon-svg" height="24" viewBox="0 0 24 24" width="24">
+					<path class="checked-false" d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+					<path class="checked-true" d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+				<div class="item__text">
+					<span class="item__primary-text">특수문자</span>
+					<span class="item__secondary-text">!-@</span>
+				</div>
+			</label>
+		</li>
+
+		<li class="list__item">
+			<label class="item-label">
+				<input id="js--option-length" class="item__length-input" type="number" name="option" min="1" max="99" value="10">
+				<span class="item__length-text">자</span>
+			</label>
+		</li>
+		
+		<li class="list__item">
+			<label class="item-label">
+				<input id="js--generate" class="hidden" type="button">
+				<svg class="item__icon-svg" height="24" viewBox="0 0 24 24" width="24">
+					<path d="M0 0h24v24H0z" fill="none"/>
+					<path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+				</svg>
+				<div class="item__text">
+					<span class="item__primary-text">생성</span>
+					<span class="item__secondary-text">만들어 버려!</span>
+				</div>
+			</label>
+		</li>
+
+		<li class="list__space"></li>
+		
+		<li class="list__item list__item--last">
+			<label class="list__toggle-label" for="list__toggle-input">
+				<svg class="toggle__icon-svg" height="24" viewBox="0 0 24 24" width="24">
+					<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+			</label>
+		</li>
+	</ul>
+
+	<div class="content">
+		<textarea id="js--output" class="card"></textarea>
 	</div>
+</div>
+
+
 	<script rel="javascript" src="script.js"></script>
 </body>
 </html>

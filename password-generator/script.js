@@ -1,51 +1,44 @@
-var result = document.querySelector('.js--a-res'),
-	submit = document.querySelector('.js--a-sub');
+var inputs = {
+	number: document.getElementById('js--option-number'),
+	lowercase: document.getElementById('js--option-lowercase'),
+	uppercase: document.getElementById('js--option-uppercase'),
+	specialChar: document.getElementById('js--option-specialChar'),
+	length:	document.getElementById('js--option-length'),
 
-submit.addEventListener('click', () => {
-	'use strict';
-	
-	result.innerHTML = '';
-	
-	let conditions = [
-			document.querySelector('.js--a-1').checked,
-			document.querySelector('.js--a-2').checked,
-			document.querySelector('.js--a-3').value
-		],
-		spchr = [
-			'!',
-			'@',
-			'#',
-			'$',
-			'%',
-			'^',
-			'&',
-			'*',
-			'(',
-			')',
-			'_',
-			'+'
-		],
-		card = [];
+	generate: document.getElementById('js--generate'),
+	output: document.getElementById('js--output')
+};
 
-	for (var i = 0; i < 10; i++) {
-		card[i] = i+'';
+function generate() {
+	var options = {
+		isNumber: inputs.number.checked,
+		isLowercase: inputs.lowercase.checked,
+		isUppercase: inputs.uppercase.checked,
+		isSpecialChar: inputs.specialChar.checked,
+		length: inputs.length.value
+	},
+	usuable = '',
+	password = '';
+	
+	if (options.isNumber) {
+		usuable += '1234567890';
 	}
-	for (i = 10; i < 36; i++) {
-		card[i] = String.fromCharCode(i + 87);
+	if (options.isLowercase) {
+		usuable += 'abcdefghijklmnopqrstuvwxyz';
 	}
-	if ( conditions[0] ) {
-		for(i = 36; i < 62; i++) {
-			card[i] = String.fromCharCode(i + 29);
-		}
+	if (options.isUppercase) {
+		usuable += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	}
-	if ( conditions[1] ) {
-		let cl = card.length;
-		for(i = cl; i < cl + spchr.length; i++) {
-			card[i] = spchr[i - cl];
-		}
+	if (options.isSpecialChar) {
+		usuable += '`~!@#$%^&*()-_+=\\|';
 	}
 	
-	for (i = 0; i < conditions[2]; i++) {
-		result.innerHTML += card[Math.floor( Math.random() * card.length) ];
+	for (var i = 0; i < options.length; i++) {
+		password += usuable[Math.floor(Math.random() * Date.now()) % usuable.length];
 	}
-});
+
+	inputs.output.innerHTML = password;
+}
+generate();
+
+inputs.generate.addEventListener('click', generate);
